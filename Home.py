@@ -1,25 +1,38 @@
 import streamlit as st
+from PIL import Image
 
-st.set_page_config(page_title="Vishnu Portfolio", layout="wide")
+# Load profile image
+img = Image.open("assets/profile.jpg")
 
-# Header
-st.title("👨‍💻 Vishnu Vardhan Dumpala")
-st.subheader("Python Developer | Automation Enthusiast | Cybersecurity Learner")
+# Set wide layout
+st.set_page_config(layout="wide", page_title="Vishnu Portfolio")
 
-# Bio
-st.write("""
-Hi! I'm Vishnu — passionate about building smart and secure systems using Python.
+# ----- HEADER -----
+col1, col2 = st.columns([1, 2])
 
----
+with col1:
+    st.image(img, width=200)
 
-### 🔗 Connect with Me:
-- 📧 Email: your.email@example.com
-- 🐙 GitHub: [github.com/yourusername](https://github.com/yourusername)
-- 💼 LinkedIn: [linkedin.com/in/yourusername](https://linkedin.com/in/yourusername)
+with col2:
+    st.title("Vishnu Vardhan Dumpala")
+    st.subheader("Python Developer | Automation Enthusiast | Cybersecurity Learner")
+    st.write("Welcome to my AI-enhanced interactive portfolio!")
 
----
+# ----- Projects -----
+st.markdown("## 🚀 Projects")
 
-### 📂 Projects
-👉 Go to the **Projects** page to view my work!
+project_list = {
+    "SecureTrack 🔒": "Cybersecurity automation using Python and log monitoring.",
+    "SalesViz 360 📊": "Power BI dashboard for sales insights.",
+    "AutoMail Pro 📧": "Automated bulk mailer using Python.",
+    "AI Portfolio 🤖": "This futuristic portfolio site built using Streamlit.",
+}
 
-""")
+for title, desc in project_list.items():
+    st.markdown(f"### {title}")
+    st.write(desc)
+
+# ----- Footer -----
+st.markdown("---")
+st.write("📫 Reach me at: vishnudumpala@email.com | [GitHub](https://github.com/vishnuvardhan) | [LinkedIn](https://linkedin.com)")
+
